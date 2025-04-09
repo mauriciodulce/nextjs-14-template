@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -8,30 +8,44 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
+    container: {
+      center: true,
+      padding: '2rem',
       screens: {
-        sm: '500px',
-        md: '800px',
-        lg: '1200px',
-        xl: '1536px',
+        '2xl': '1400px',
       },
+    },
+    extend: {
       colors: {
-        brand: {
-          accent: '#5AD769',
-          main: '#324BC3',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
-        text: {
-          primary: '#FFFFFF',
-          secondary: '#0C0F19',
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
-        background: {
-          primary: '#0C0F19',
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        mono: [...defaultTheme.fontFamily.mono],
-        poppins: ['var(--font-poppins)'],
+        sans: ['var(--font-inter)', ...fontFamily.sans],
+        poppins: ['var(--font-poppins)', ...fontFamily.sans],
       },
     },
   },
