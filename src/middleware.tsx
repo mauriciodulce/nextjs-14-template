@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
@@ -7,8 +9,7 @@ export default async function middleware(req: NextRequest) {
 
   const authUser = true;
 
-  if (!authUser)
-    return NextResponse.redirect(new URL('/unauthorized', req.url), req);
+  if (!authUser) throw new Error('Unauthorized');
 
   return NextResponse.next();
 }
