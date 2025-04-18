@@ -9,26 +9,35 @@ import ThemeToggle from './ThemeToggle';
 export default function MainNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-[var(--background)]/[0.85] backdrop-blur-lg border-b border-[var(--border)] shadow-sm">
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-6 max-w-full">
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold font-poppins">NextBoiler</span>
+          <span className="text-xl sm:text-2xl font-bold font-poppins bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent">
+            NextBoiler
+          </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="/docs" className="text-sm font-medium hover:text-primary">
+        <nav className="hidden md:flex items-center gap-8">
+          <Link
+            href="/docs"
+            className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+          >
             Documentation
           </Link>
           <Link
             href="/components"
-            className="text-sm font-medium hover:text-primary"
+            className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             Components
           </Link>
           <Link
             href="/examples"
-            className="text-sm font-medium hover:text-primary"
+            className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             Examples
           </Link>
@@ -36,7 +45,7 @@ export default function MainNavbar() {
             href="https://github.com/AnwarHossainSR/nextjs-15-template"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium hover:text-primary"
+            className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             <Github className="h-5 w-5" />
           </Link>
@@ -45,8 +54,8 @@ export default function MainNavbar() {
 
         <button
           type="button"
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+          onClick={handleToggle}
         >
           {mobileMenuOpen ? (
             <X className="h-6 w-6" />
@@ -56,26 +65,26 @@ export default function MainNavbar() {
         </button>
 
         {mobileMenuOpen && (
-          <div className="absolute inset-x-0 top-16 z-50 bg-background border-b md:hidden">
-            <div className="container py-4 flex flex-col space-y-4">
+          <div className="fixed inset-x-0 top-16 z-50 bg-[var(--background)] border-b border-[var(--border)] shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
+            <div className="container py-6 flex flex-col space-y-4 px-4 sm:px-6 max-w-full">
               <Link
                 href="/docs"
-                className="text-sm font-medium hover:text-primary"
-                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                onClick={handleToggle}
               >
                 Documentation
               </Link>
               <Link
                 href="/components"
-                className="text-sm font-medium hover:text-primary"
-                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                onClick={handleToggle}
               >
                 Components
               </Link>
               <Link
                 href="/examples"
-                className="text-sm font-medium hover:text-primary"
-                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                onClick={handleToggle}
               >
                 Examples
               </Link>
@@ -84,7 +93,8 @@ export default function MainNavbar() {
                   href="https://github.com/AnwarHossainSR/nextjs-15-template"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium hover:text-primary"
+                  className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                  onClick={handleToggle}
                 >
                   <Github className="h-5 w-5" />
                 </Link>
