@@ -67,14 +67,14 @@ Your application will be available at [http://localhost:3000](http://localhost:3
 
 ## 📋 Scripts
 
-| Command           | Description                              |
-| ----------------- | ---------------------------------------- |
-| `yarn dev`        | Start development server                 |
-| `yarn build`      | Build production application             |
-| `yarn start`      | Start production server                  |
-| `yarn lint`       | Run ESLint to check code quality         |
-| `yarn analyze`    | Generate bundle analyzer report          |
-| `yarn format`     | Format code with Prettier                |
+| Command        | Description                      |
+| -------------- | -------------------------------- |
+| `yarn dev`     | Start development server         |
+| `yarn build`   | Build production application     |
+| `yarn start`   | Start production server          |
+| `yarn lint`    | Run ESLint to check code quality |
+| `yarn analyze` | Generate bundle analyzer report  |
+| `yarn format`  | Format code with Prettier        |
 
 ## 🧰 Project Structure
 
@@ -113,6 +113,7 @@ import { Button } from '@/components/ui/Button';
 ### Import Sorting
 
 Imports are automatically grouped and sorted in the following order:
+
 1. External dependencies
 2. Absolute imports (`@/*`)
 3. Relative imports
@@ -122,6 +123,7 @@ This is implemented using [`eslint-plugin-simple-import-sort`](https://github.co
 ### Code Quality
 
 ESLint extends:
+
 - [`eslint-config-airbnb`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 - [`eslint-config-next`](https://www.npmjs.com/package/eslint-config-next)
 - [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) for accessibility recommendations
