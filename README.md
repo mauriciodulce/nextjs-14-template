@@ -12,6 +12,12 @@
   [![Perfect Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%25-success)](https://developer.chrome.com/docs/lighthouse/overview/)
 </div>
 
+## 🖥️ Demo
+
+<div align="center">
+  <img src="/public/images/home-demo.png" alt="Next.js Boilerplate Home Page Demo" width="100%" />
+</div>
+
 ## ✨ Features
 
 This boilerplate is designed to give you a production-ready foundation with everything configured for optimal development experience and performance:

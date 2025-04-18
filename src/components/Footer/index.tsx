@@ -1,41 +1,39 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function MainFooter() {
   return (
-    <footer className="w-full border-t bg-background">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built with <span className="font-medium">Next.js 15</span>. The
-            source code is available on{' '}
-            <Link
-              href="https://github.com/AnwarHossainSR/nextjs-15-template"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              GitHub
-            </Link>
-            .
-          </p>
+    <footer className="w-full py-8 bg-[var(--card)] border-t border-[var(--border)]">
+      <div className="container px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4 max-w-full">
+        <div className="flex items-center space-x-2">
+          <span className="text-sm font-semibold text-[var(--foreground)] font-poppins">
+            NextBoiler
+          </span>
+          <span className="text-sm text-[var(--muted-foreground)]">
+            © {new Date().getFullYear()} All rights reserved.
+          </span>
         </div>
-        <div className="flex items-center gap-4">
+        <nav className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <Link
+            href="/docs"
+            className="text-sm text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+          >
+            Documentation
+          </Link>
           <Link
             href="/privacy"
-            className="text-sm font-medium underline-offset-4 hover:underline"
+            className="text-sm text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             Privacy
           </Link>
           <Link
             href="/terms"
-            className="text-sm font-medium underline-offset-4 hover:underline"
+            className="text-sm text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             Terms
           </Link>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Anwar Hossain
-          </p>
-        </div>
+        </nav>
       </div>
     </footer>
   );
