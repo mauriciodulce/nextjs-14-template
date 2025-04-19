@@ -24,19 +24,19 @@ export default function MainNavbar() {
 
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            href="/docs"
+            href="https://nextjs.org/docs"
             className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             Documentation
           </Link>
           <Link
-            href="/components"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
-            Components
+            Deploy
           </Link>
           <Link
-            href="/examples"
+            href="https://github.com/vercel/next.js/tree/canary/examples"
             className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
             Examples
@@ -68,21 +68,21 @@ export default function MainNavbar() {
           <div className="fixed inset-x-0 top-16 z-50 bg-[var(--background)] border-b border-[var(--border)] shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
             <div className="container py-6 flex flex-col space-y-4 px-4 sm:px-6 max-w-full">
               <Link
-                href="/docs"
+                href="https://nextjs.org/docs"
                 className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
                 onClick={handleToggle}
               >
                 Documentation
               </Link>
               <Link
-                href="/components"
+                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                 className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
                 onClick={handleToggle}
               >
-                Components
+                Deploy
               </Link>
               <Link
-                href="/examples"
+                href="https://github.com/vercel/next.js/tree/canary/examples"
                 className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
                 onClick={handleToggle}
               >
