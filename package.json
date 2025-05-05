@@ -16,16 +16,19 @@
     "prettier": "prettier --write .",
     "lint": "yarn eslint && yarn prettier",
     "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore",
-    "postbuild": "yarn prisma generate"
+    "postbuild": "npx prisma generate",
+    "db:push": "npx prisma db push",
+    "ngrok": "ngrok http 3000"
   },
   "lint-staged": {
     "*.{js,jsx,md,ts,tsx,html,css,scss}": "yarn prettier",
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix --cache-location ./node_modules/.cache/.eslintcache"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.18.5",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@next/bundle-analyzer": "^15.0.1",
-    "@prisma/client": "^5.21.1",
+    "@prisma/client": "^5.22.0",
     "@tailwindcss/postcss": "^4.1.4",
     "@tanstack/react-query": "^5.59.16",
     "@tanstack/react-query-devtools": "^5.59.16",
@@ -42,6 +45,7 @@
     "react-hook-form": "^7.53.1",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.3.0",
+    "svix": "^1.64.1",
     "winston": "^3.14.1"
   },
   "devDependencies": {
