@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
 
-import { prismaDB as prisma } from '@/lib/prismaDB';
+import { prismaDB as prisma } from '@/lib/prisma';
 
 export async function POST(req: Request) {
   const { CLERK_WEBHOOK_SECRET } = process.env;

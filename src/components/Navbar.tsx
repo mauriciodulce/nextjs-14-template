@@ -14,7 +14,7 @@ export default function MainNavbar() {
   const handleToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-  console.log('isSignedIn', isSignedIn);
+
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--background)]/[0.85] backdrop-blur-lg border-b border-[var(--border)] shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 max-w-full">
@@ -26,22 +26,10 @@ export default function MainNavbar() {
 
         <nav className="hidden md:flex items-center gap-8">
           <Link
-            href="https://nextjs.org/docs"
+            href="/posts"
             className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
           >
-            Documentation
-          </Link>
-          <Link
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
-          >
-            Deploy
-          </Link>
-          <Link
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
-          >
-            Examples
+            Posts
           </Link>
           {isSignedIn && (
             <Link
@@ -71,7 +59,7 @@ export default function MainNavbar() {
               </SignOutButton>
             </>
           ) : (
-            <SignInButton mode="modal">
+            <SignInButton mode="modal" suppressHydrationWarning>
               <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
                 Sign In
               </button>
@@ -96,25 +84,11 @@ export default function MainNavbar() {
           <div className="fixed inset-x-0 top-16 z-50 bg-[var(--background)] border-b border-[var(--border)] shadow-lg md:hidden animate-in slide-in-from-top duration-300 max-w-full">
             <div className="container py-6 flex flex-col space-y-4 px-4 sm:px-6 max-w-full">
               <Link
-                href="https://nextjs.org/docs"
+                href="/posts"
                 className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
                 onClick={handleToggle}
               >
-                Documentation
-              </Link>
-              <Link
-                href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
-                onClick={handleToggle}
-              >
-                Deploy
-              </Link>
-              <Link
-                href="https://github.com/vercel/next.js/tree/canary/examples"
-                className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
-                onClick={handleToggle}
-              >
-                Examples
+                Posts
               </Link>
               {isSignedIn && (
                 <Link
@@ -147,7 +121,7 @@ export default function MainNavbar() {
                     </SignOutButton>
                   </>
                 ) : (
-                  <SignInButton mode="modal">
+                  <SignInButton mode="modal" suppressHydrationWarning>
                     <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
                       Sign In
                     </button>
