@@ -1,5 +1,6 @@
 'use client';
 
+import { SignInButton, SignOutButton, useUser } from '@clerk/nextjs';
 import { Github, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -8,11 +9,12 @@ import ThemeToggle from './ThemeToggle';
 
 export default function MainNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isSignedIn, user } = useUser();
 
   const handleToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
+  console.log('isSignedIn', isSignedIn);
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--background)]/[0.85] backdrop-blur-lg border-b border-[var(--border)] shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 max-w-full">
@@ -41,6 +43,14 @@ export default function MainNavbar() {
           >
             Examples
           </Link>
+          {isSignedIn && (
+            <Link
+              href="/dashboard"
+              className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+            >
+              Dashboard
+            </Link>
+          )}
           <Link
             href="https://github.com/AnwarHossainSR/nextjs-15-template"
             target="_blank"
@@ -49,6 +59,24 @@ export default function MainNavbar() {
           >
             <Github className="h-5 w-5" />
           </Link>
+          {isSignedIn ? (
+            <>
+              <span className="text-sm font-medium text-[var(--foreground)]">
+                {user?.firstName || user?.emailAddresses[0].emailAddress}
+              </span>
+              <SignOutButton>
+                <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                  Sign Out
+                </button>
+              </SignOutButton>
+            </>
+          ) : (
+            <SignInButton mode="modal">
+              <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                Sign In
+              </button>
+            </SignInButton>
+          )}
           <ThemeToggle />
         </nav>
 
@@ -88,6 +116,15 @@ export default function MainNavbar() {
               >
                 Examples
               </Link>
+              {isSignedIn && (
+                <Link
+                  href="/dashboard"
+                  className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200"
+                  onClick={handleToggle}
+                >
+                  Dashboard
+                </Link>
+              )}
               <div className="flex items-center justify-between">
                 <Link
                   href="https://github.com/AnwarHossainSR/nextjs-15-template"
@@ -98,6 +135,24 @@ export default function MainNavbar() {
                 >
                   <Github className="h-5 w-5" />
                 </Link>
+                {isSignedIn ? (
+                  <>
+                    <span className="text-sm font-medium text-[var(--foreground)]">
+                      {user?.firstName || user?.emailAddresses[0].emailAddress}
+                    </span>
+                    <SignOutButton>
+                      <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                        Sign Out
+                      </button>
+                    </SignOutButton>
+                  </>
+                ) : (
+                  <SignInButton mode="modal">
+                    <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
+                      Sign In
+                    </button>
+                  </SignInButton>
+                )}
                 <ThemeToggle />
               </div>
             </div>

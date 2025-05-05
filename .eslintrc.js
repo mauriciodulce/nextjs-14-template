@@ -84,6 +84,17 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+
+    camelcase: [
+      'error',
+      {
+        properties: 'never',
+        ignoreDestructuring: true,
+        ignoreImports: true,
+        ignoreGlobals: true,
+        ignore: ['^UNSAFE_'],
+      },
+    ],
   },
   settings: {
     // TypeScript needs this to resolve nextjs absolute imports
