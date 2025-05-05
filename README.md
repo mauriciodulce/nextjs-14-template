@@ -1,138 +1,176 @@
-# Next.js 15 Boilerplate
+Next.js 15 Boilerplate
 
-<div align="center">
-  <img src="/public/images/og.png" alt="Next.js Boilerplate" width="600px" />
-  <p>A production-ready starter template with everything you need to build and deploy high-performance Next.js applications.</p>
   
-  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
-  [![Next.js](https://img.shields.io/badge/Next.js-15.0-black)](https://nextjs.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8)](https://tailwindcss.com/)
-  [![ESLint](https://img.shields.io/badge/ESLint-8.0-4b32c3)](https://eslint.org/)
-  [![Perfect Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%25-success)](https://developer.chrome.com/docs/lighthouse/overview/)
-</div>
+  A production-ready starter template with everything you need to build and deploy high-performance Next.js applications.
+  
+            
 
-## 🖥️ Demo
 
-<div align="center">
-  <img src="/public/images/home-demo.png" alt="Next.js Boilerplate Home Page Demo" width="100%" />
-</div>
+🖥️ Demo
 
-## ✨ Features
+  
 
+
+✨ Features
 This boilerplate is designed to give you a production-ready foundation with everything configured for optimal development experience and performance:
 
-- 🚀 **Performance Optimized** - 100% Lighthouse score out of the box
-- 🔍 **SEO Ready** - Comprehensive meta tags and structured data
-- 🎨 **Modern UI** - Clean design with light/dark mode support
-- 🛠️ **Developer Experience** - Comprehensive tooling preconfigured
-- 📱 **Responsive** - Mobile-first approach for all screen sizes
-- ♿ **Accessible** - WCAG compliance with a11y best practices
-- 🔒 **Type Safe** - Full TypeScript support throughout the codebase
+🚀 Performance Optimized - 100% Lighthouse score out of the box
+🔍 SEO Ready - Comprehensive meta tags and structured data
+🎨 Modern UI - Clean design with light/dark mode support
+🔒 Authentication - Secure user authentication with Clerk (sign-in, sign-up, protected dashboard)
+🗄️ Data Storage - MongoDB integration for persistent data
+🛠️ Developer Experience - Comprehensive tooling preconfigured
+📱 Responsive - Mobile-first approach for all screen sizes
+♿ Accessible - WCAG compliance with a11y best practices
+🔒 Type Safe - Full TypeScript support throughout the codebase
 
-## 📚 Tech Stack
+📚 Tech Stack
 
-- [`Next.js 15`](https://nextjs.org/) - React framework for production
-- [`TypeScript`](https://typescriptlang.org) - Type safety and improved developer experience
-- [`Tailwind CSS`](https://tailwindcss.com/) - Utility-first CSS framework
-- [`ESLint`](https://eslint.org/) - Code quality and consistency
-- [`Prettier`](https://prettier.io/) - Code formatting
-- [`Husky`](https://github.com/typicode/husky) - Git hooks for pre-commit validation
-- [`next-themes`](https://github.com/pacocoursey/next-themes) - Theme management (light/dark mode)
-- [`React Query`](https://tanstack.com/query) - Data fetching and state management
+Next.js 15 - React framework for production
+TypeScript - Type safety and improved developer experience
+Tailwind CSS - Utility-first CSS framework
+Clerk - Authentication and user management
+MongoDB - NoSQL database for data storage
+ESLint - Code quality and consistency
+Prettier - Code formatting
+Husky - Git hooks for pre-commit validation
+next-themes - Theme management (light/dark mode)
+React Query - Data fetching and state management
 
-## 🚀 Getting Started
+🚀 Getting Started
+Prerequisites
 
-### Create a new project using this boilerplate
+Node.js (v18 or higher)
+MongoDB (local or MongoDB Atlas)
+Clerk account for authentication
 
-```bash
+Create a new project using this boilerplate
 git clone https://github.com/AnwarHossainSR/nextjs-15-template.git
-```
+cd nextjs-15-template
 
-### Development
+Setup Environment Variables
+Create a .env file in the root directory and add the following:
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+CLERK_WEBHOOK_SECRET=your_clerk_webhook_secret
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+MONGODB_URI=your_mongodb_connection_string
 
-```bash
-# Install dependencies
+
+Get NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY from the Clerk Dashboard under API Keys.
+Set up a webhook in Clerk and use the signing secret as CLERK_WEBHOOK_SECRET.
+Use a MongoDB connection string (e.g., mongodb://localhost:27017/your_database for local or a MongoDB Atlas URI).
+
+Configure Clerk
+In the Clerk Dashboard:
+
+Go to Settings > Paths and configure:
+Sign-in path: /sign-in
+Sign-up path: /sign-up
+After sign-in: /dashboard
+After sign-up: /dashboard
+
+
+Enable desired authentication methods (e.g., email, Google OAuth).
+
+Install Dependencies
 npm install
 # or
 yarn install
 
-# Start development server
+Start Development Server
 npm run dev
 # or
 yarn dev
-```
 
-Your application will be available at [http://localhost:3000](http://localhost:3000).
+Your application will be available at http://localhost:3000.
+📋 Scripts
 
-## 📋 Scripts
 
-| Command        | Description                      |
-| -------------- | -------------------------------- |
-| `yarn dev`     | Start development server         |
-| `yarn build`   | Build production application     |
-| `yarn start`   | Start production server          |
-| `yarn lint`    | Run ESLint to check code quality |
-| `yarn analyze` | Generate bundle analyzer report  |
-| `yarn format`  | Format code with Prettier        |
 
-## 🧰 Project Structure
+Command
+Description
 
-```
+
+
+yarn dev
+Start development server
+
+
+yarn build
+Build production application
+
+
+yarn start
+Start production server
+
+
+yarn lint
+Run ESLint to check code quality
+
+
+yarn analyze
+Generate bundle analyzer report
+
+
+yarn format
+Format code with Prettier
+
+
+🧰 Project Structure
 src/
-├── app/              # App router pages
-├── components/       # Reusable UI components
+├── app/              # App router pages (e.g., sign-in, sign-up, dashboard)
+├── components/       # Reusable UI components (e.g., Navbar, Footer)
 ├── hooks/            # Custom React hooks
 ├── lib/              # Utility functions and libraries
-├── providers/        # Context providers
+├── providers/        # Context providers (e.g., Theme, Query, Clerk)
 ├── styles/           # Global styles
 ├── types/            # TypeScript type definitions
 └── utils/            # Helper functions
-```
 
-## 💅 Styling
+🔐 Authentication
+This boilerplate uses Clerk for authentication, providing a secure and scalable solution for user management. Key routes include:
 
+/sign-in: Clerk's sign-in page, redirects to /dashboard after successful login.
+/sign-up: Clerk's sign-up page, redirects to /dashboard after account creation.
+/dashboard: Protected route, accessible only to authenticated users, featuring a sidebar with profile and settings navigation.
+/api/webhooks: Public route for handling Clerk webhook events (e.g., user creation).
+
+The middleware (middleware.ts) ensures that routes like /dashboard are protected, while /, /sign-in, /sign-up, and /api/webhooks are publicly accessible.
+🗄️ Database
+MongoDB is integrated for persistent data storage. The MONGODB_URI in the .env file connects to your MongoDB instance (local or cloud-based). Example usage includes storing user-related data synced via Clerk webhooks.
+💅 Styling
 This boilerplate uses Tailwind CSS for styling with a custom theme configuration that supports light and dark modes. Styled Components are generated at build time and served with the document generated by Next.js Server Side Rendering for optimal performance.
-
 The project includes Google Fonts (Inter and Poppins) preloaded at build time for improved performance and consistent typography.
-
-## 🧩 Development Features
-
-### Absolute Imports
-
-Absolute imports are configured with the `@/` prefix starting from the `src` folder:
-
-```tsx
+🧩 Development Features
+Absolute Imports
+Absolute imports are configured with the @/ prefix starting from the src folder:
 // Instead of this
 import { Button } from '../../../components/ui/Button';
 
 // You can write this
 import { Button } from '@/components/ui/Button';
-```
 
-### Import Sorting
-
+Import Sorting
 Imports are automatically grouped and sorted in the following order:
 
-1. External dependencies
-2. Absolute imports (`@/*`)
-3. Relative imports
+External dependencies
+Absolute imports (@/*)
+Relative imports
 
-This is implemented using [`eslint-plugin-simple-import-sort`](https://github.com/lydell/eslint-plugin-simple-import-sort).
-
-### Code Quality
-
+This is implemented using eslint-plugin-simple-import-sort.
+Code Quality
 ESLint extends:
 
-- [`eslint-config-airbnb`](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
-- [`eslint-config-next`](https://www.npmjs.com/package/eslint-config-next)
-- [`eslint-plugin-jsx-a11y`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) for accessibility recommendations
+eslint-config-airbnb
+eslint-config-next
+eslint-plugin-jsx-a11y for accessibility recommendations
 
-### Git Hooks
-
+Git Hooks
 On every commit, staged files are validated with ESLint using Husky and lint-staged:
-
-```json
 "husky": {
   "hooks": {
     "pre-commit": "lint-staged"
@@ -141,25 +179,18 @@ On every commit, staged files are validated with ESLint using Husky and lint-sta
 "lint-staged": {
   "*.{js,jsx,ts,tsx}": "eslint --cache --fix --cache-location ./node_modules/.cache/.eslintcache"
 }
-```
 
-## 🔍 SEO
+🔍 SEO
 
-- Comprehensive meta tags in the layout file
-- OpenGraph and Twitter card metadata
-- `/public/robots.txt` configured to allow indexing
-- Sitemap generation support
+Comprehensive meta tags in the layout file
+OpenGraph and Twitter card metadata
+/public/robots.txt configured to allow indexing
+Sitemap generation support
 
-## 📝 License
-
+📝 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
+🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
----
 
-<div align="center">
-  <p>Made with ❤️ by <a href="https://github.com/AnwarHossainSR">Anwar Hossain</a></p>
-</div>
+  Made with ❤️ by Anwar Hossain
