@@ -17,6 +17,7 @@
     "lint": "yarn eslint && yarn prettier",
     "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore",
     "postbuild": "npx prisma generate",
+    "postinstall": "npx prisma generate",
     "db:push": "npx prisma db push",
     "ngrok": "ngrok http 3000"
   },
