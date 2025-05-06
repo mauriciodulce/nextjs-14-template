@@ -59,9 +59,9 @@ export default function PostsPage() {
   ];
 
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-[var(--background)] min-h-screen">
       {/* Hero section */}
-      <div className="relative bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
+      <div className="relative bg-gradient-to-r from-[var(--primary)]/[0.1] to-[var(--accent)]/[0.1] py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -69,22 +69,22 @@ export default function PostsPage() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Explore Our <span className="text-primary">Blog</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-4">
+              Explore Our <span className="text-[var(--primary)]">Blog</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-[var(--muted-foreground)] max-w-2xl mx-auto mb-8">
               Discover insightful articles, tutorials, and stories from our
               community of writers and experts.
             </p>
 
             <div className="relative max-w-lg mx-auto">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[var(--muted-foreground)]" />
               <Input
                 type="text"
                 placeholder="Search posts by title, content, or tags..."
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                className="pl-10 py-6 bg-background/80 backdrop-blur-sm border-muted focus-visible:ring-primary"
+                className="pl-10 py-6 bg-[var(--card)] border-[var(--border)] text-[var(--foreground)] focus-visible:ring-[var(--primary)] placeholder:text-[var(--muted-foreground)]"
               />
             </div>
           </motion.div>
@@ -97,7 +97,7 @@ export default function PostsPage() {
             className="absolute bottom-0 w-full h-full"
           >
             <path
-              fill="hsl(var(--background))"
+              fill="var(--background)"
               d="M0,96L48,85.3C96,75,192,53,288,53.3C384,53,480,75,576,80C672,85,768,75,864,64C960,53,1056,43,1152,42.7C1248,43,1344,53,1392,58.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
             ></path>
           </svg>
@@ -108,7 +108,7 @@ export default function PostsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-[var(--muted-foreground)]">
               Categories:
             </span>
             <div className="flex flex-wrap gap-2">
@@ -118,7 +118,11 @@ export default function PostsPage() {
                   variant={
                     selectedCategory === category ? 'default' : 'outline'
                   }
-                  className="cursor-pointer hover:bg-muted/80"
+                  className={`cursor-pointer transition-colors ${
+                    selectedCategory === category
+                      ? 'bg-[var(--primary)] text-[var(--primary-foreground)] hover:bg-[var(--primary)]/[0.9]'
+                      : 'bg-[var(--card)] text-[var(--foreground)] border-[var(--border)] hover:bg-[var(--muted)]'
+                  }`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -128,13 +132,13 @@ export default function PostsPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground">
+            <span className="text-sm font-medium text-[var(--muted-foreground)]">
               Sort by:
             </span>
             <div className="relative">
               <button
                 onClick={() => setIsSortMenuOpen(!isSortMenuOpen)}
-                className="flex items-center gap-1 px-3 py-1.5 border border-border rounded-md bg-background text-sm text-foreground hover:bg-muted transition-colors"
+                className="flex items-center gap-1 px-3 py-1.5 border border-[var(--border)] rounded-md bg-[var(--card)] text-sm text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
               >
                 {sortBy === 'newest'
                   ? 'Newest'
@@ -144,11 +148,11 @@ export default function PostsPage() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               {isSortMenuOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-background border border-border rounded-md shadow-lg z-10">
+                <div className="absolute right-0 mt-2 w-40 bg-[var(--card)] border border-[var(--border)] rounded-md shadow-lg z-10">
                   {sortOptions.map(option => (
                     <label
                       key={option.value}
-                      className="flex items-center px-4 py-2 text-sm text-foreground hover:bg-muted cursor-pointer"
+                      className="flex items-center px-4 py-2 text-sm text-[var(--foreground)] hover:bg-[var(--muted)] cursor-pointer"
                     >
                       <input
                         type="radio"
@@ -159,7 +163,7 @@ export default function PostsPage() {
                           setSortBy(option.value);
                           setIsSortMenuOpen(false);
                         }}
-                        className="mr-2 h-4 w-4 text-primary focus:ring-primary"
+                        className="mr-2 h-4 w-4 text-[var(--primary)] focus:ring-[var(--primary)]"
                       />
                       {option.label}
                     </label>
@@ -176,7 +180,7 @@ export default function PostsPage() {
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className="rounded-xl overflow-hidden border border-border"
+                className="rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--card)]"
               >
                 <Skeleton className="h-48 w-full" />
                 <div className="p-5">
@@ -190,7 +194,7 @@ export default function PostsPage() {
           </div>
         ) : error ? (
           <div className="flex flex-col items-center justify-center py-16">
-            <div className="text-destructive text-lg mb-4">
+            <div className="text-[var(--destructive)] text-lg mb-4">
               Error loading posts: {error.message}
             </div>
             <Button variant="outline" onClick={() => window.location.reload()}>
@@ -200,10 +204,10 @@ export default function PostsPage() {
         ) : posts?.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
             <div className="text-4xl mb-4">🔍</div>
-            <h2 className="text-2xl font-semibold text-foreground mb-2">
+            <h2 className="text-2xl font-semibold text-[var(--foreground)] mb-2">
               No posts found
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-[var(--muted-foreground)] mb-6">
               {searchQuery
                 ? `No results for "${searchQuery}"`
                 : selectedCategory !== 'All'
@@ -270,7 +274,7 @@ export default function PostsPage() {
           </motion.div>
         )}
 
-        {/* Pagination - we could add this later */}
+        {/* Pagination */}
         {posts && posts.length > 0 && (
           <div className="flex justify-center mt-12">
             <Button variant="outline" className="mr-2">

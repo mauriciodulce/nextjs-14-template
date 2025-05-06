@@ -59,7 +59,7 @@ export default function MainNavbar() {
               </SignOutButton>
             </>
           ) : (
-            <SignInButton mode="modal" suppressHydrationWarning>
+            <SignInButton mode="modal">
               <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
                 Sign In
               </button>
@@ -121,7 +121,7 @@ export default function MainNavbar() {
                     </SignOutButton>
                   </>
                 ) : (
-                  <SignInButton mode="modal" suppressHydrationWarning>
+                  <SignInButton mode="modal">
                     <button className="text-sm font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200">
                       Sign In
                     </button>
