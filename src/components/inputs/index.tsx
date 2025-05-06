@@ -16,6 +16,7 @@ interface InputProps {
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
+  placeholder?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -27,6 +28,7 @@ const Input: React.FC<InputProps> = ({
   register,
   required,
   errors,
+  placeholder,
 }) => {
   return (
     <div className="w-full relative">
@@ -46,7 +48,7 @@ const Input: React.FC<InputProps> = ({
         disabled={disabled}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...register(id, { required })}
-        placeholder=" "
+        placeholder={placeholder}
         type={type}
         className={`
           peer
@@ -91,4 +93,5 @@ const Input: React.FC<InputProps> = ({
   );
 };
 
-export default Input;
+export { Input };
+
