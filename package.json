@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-14-template",
+  "name": "nextjs-15-template",
   "version": "1.0.0",
   "author": "Anwar Hossain",
   "license": "MIT",
@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.18.5",
-    "@next-auth/prisma-adapter": "^1.0.7",
     "@next/bundle-analyzer": "^15.0.1",
     "@prisma/client": "^6.7.0",
     "@tailwindcss/postcss": "^4.1.4",
